@@ -1,0 +1,53 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="20dp">
+
+    <!-- Titulo aplicación -->
+    <TextView
+        android:id="@+id/tituloPrincipal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="App Multimedia de Animales"
+        android:textSize="24sp"
+        android:textStyle="bold"/>
+
+    <!-- Descripción de la aplicación -->
+    <TextView
+        android:id="@+id/descApp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Aplicación de animales"
+        android:textSize="20sp"/>
+
+    <!-- Botón entrar aplicación -->
+    <Button
+        android:id="@+id/btnEntrar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Entrar"
+        android:textSize="22sp"/>
+
+    <!-- Botón salir aplicación -->
+    <Button
+        android:id="@+id/btnSalir"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Salir"
+        android:textSize="18sp"/>
+
+
+
+
+
+
+
+
+
+</LinearLayout>
