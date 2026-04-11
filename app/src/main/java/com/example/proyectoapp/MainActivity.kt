@@ -24,7 +24,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         //Conectar botones del XML con el código
-
         salir = findViewById(R.id.btnSalir)
         entrar = findViewById(R.id.btnEntrar)
 

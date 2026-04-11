@@ -1,0 +1,61 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- Nombre del animal -->
+        <TextView
+            android:id="@+id/nombreAnimal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textSize="20sp"/>
+
+        <!-- Imagen -->
+        <ImageView
+            android:id="@+id/imagenAnimal"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:layout_marginTop="20dp"
+            android:scaleType="centerCrop"/>
+
+        <!-- Botón sonido -->
+        <Button
+            android:id="@+id/btnSonido"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Escuchar sonido"
+            android:layout_marginTop="20dp"/>
+
+        <!-- Botón vídeo -->
+        <Button
+            android:id="@+id/btnVideo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ver vídeo"
+            android:layout_marginTop="20dp"/>
+
+        <!-- Video -->
+        <VideoView
+            android:id="@+id/mostrarVideo"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginTop="20dp"/>
+
+        <!-- Botón volver -->
+        <Button
+            android:id="@+id/btnVolver"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Volver"
+            android:layout_marginTop="20dp"/>
+
+    </LinearLayout>
+
+</ScrollView>

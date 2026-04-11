@@ -12,6 +12,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProyectoApp">
         <activity
+            android:name=".VideosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SonidosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DetalleAnimalActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AnimalesActivity"
+            android:exported="false" />
+        <activity
             android:name=".MenuActivity"
             android:exported="false" />
         <activity

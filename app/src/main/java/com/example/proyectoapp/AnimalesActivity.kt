@@ -1,20 +1,40 @@
 package com.example.proyectoapp
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
+import android.widget.Button
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 class AnimalesActivity : AppCompatActivity() {
+
+    lateinit var volver : Button
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+
+        // Enlaza esta Activity con su layout XML
         setContentView(R.layout.activity_animales)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+
+        // Obtener referencia al RecyclerView definido en el XML
+        val recycler = findViewById<RecyclerView>(R.id.recyclerAnimales)
+
+        // Definir cómo se van a mostrar los elementos (lista vertical)
+        recycler.layoutManager = LinearLayoutManager(this)
+
+        // Crear el Adapter pasándole la lista de animales
+        // y asignarlo al RecyclerView para que pueda mostrar los datos
+        recycler.adapter = AnimalAdapter(AnimalRepository.listaAnimales)
+
+        //Crear variable del botón volver
+        volver = findViewById(R.id.btnVolverAnimales)
+
+        //regresar a la ventana de inicio de la aplicación
+        volver.setOnClickListener {
+
+            Toast.makeText(this, "Regresando a la ventana inicial", Toast.LENGTH_LONG).show()
+            finish()
         }
     }
 }
