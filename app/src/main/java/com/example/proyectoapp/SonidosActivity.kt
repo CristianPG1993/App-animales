@@ -11,6 +11,9 @@ class SonidosActivity : AppCompatActivity() {
 
     lateinit var volver : Button
 
+    // Crear el Adapter pasándole la lista de animales
+    val adapter = SonidoAdapter(AnimalRepository.listaAnimales)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -26,9 +29,8 @@ class SonidosActivity : AppCompatActivity() {
         // Definir cómo se van a mostrar los elementos (lista vertical)
         recycler.layoutManager = LinearLayoutManager(this)
 
-        // Crear el Adapter pasándole la lista de animales
-        // y asignarlo al RecyclerView para que pueda mostrar los datos
-        recycler.adapter = SonidoAdapter(AnimalRepository.listaAnimales)
+        // Asignar el adaptador al RecyclerView
+        recycler.adapter = adapter
 
         //regresar a la ventana de inicio de la aplicación
         volver.setOnClickListener {
@@ -36,5 +38,13 @@ class SonidosActivity : AppCompatActivity() {
             Toast.makeText(this, "Volviendo al menú", Toast.LENGTH_LONG).show()
             finish()
         }
+    }
+
+    // Mé_todo que se ejecuta cuando la Activity deja de ser visible (por ejemplo, al pulsar el botón volver)
+    override fun onStop() {
+        super.onStop()
+
+        //Detener y liberar cualquier sonido en reproducción
+        adapter.liberarSonido()
     }
 }

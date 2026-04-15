@@ -12,6 +12,9 @@ import com.example.proyectoapp.AnimalAdapter.AnimalViewHolder
 
 class SonidoAdapter(val listaAnimales: List<Animal>) : RecyclerView.Adapter<SonidoAdapter.SonidoViewHolder>(){
 
+    // MediaPlayer para gestionar la reproducción de sonido
+    var mediaPlayer: MediaPlayer? = null
+
     class SonidoViewHolder(view : View) : RecyclerView.ViewHolder(view){
 
         val imagenAnimal : ImageView = view.findViewById(R.id.imagenAnimal)
@@ -21,6 +24,12 @@ class SonidoAdapter(val listaAnimales: List<Animal>) : RecyclerView.Adapter<Soni
 
     override fun getItemCount(): Int {
         return listaAnimales.size
+    }
+
+    // Libera los recursos del reproductor de audio
+    fun liberarSonido() {
+        mediaPlayer?.release()
+        mediaPlayer = null
     }
 
     //Obtiene el animal de la lista
@@ -34,8 +43,15 @@ class SonidoAdapter(val listaAnimales: List<Animal>) : RecyclerView.Adapter<Soni
         holder.itemView.setOnClickListener {
 
             val context = holder.itemView.context
-            val mp = MediaPlayer.create(context, animal.sonido)
-            mp.start()
+
+            // Liberar sonido anterior si existe
+            mediaPlayer?.release()
+
+            // Crear nuevo MediaPlayer con el sonido del animal
+            mediaPlayer = MediaPlayer.create(context, animal.sonido)
+
+            // Reproducir sonido
+            mediaPlayer?.start()
         }
     }
 

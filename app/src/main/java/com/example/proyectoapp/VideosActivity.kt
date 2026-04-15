@@ -36,4 +36,9 @@ class VideosActivity : AppCompatActivity() {
         }
 
     }
+
+
+    override fun onStop() {
+        super.onStop()
+    }
 }
